@@ -1,0 +1,233 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>User_Registraion</title>
+    <link href="~/Content/ExternalStyle/RegistrationStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <img class="logo" src="~/Content/images/logo.png" />
+            <h4>Job Portal</h4>
+            <div class="items">
+                <a href="/Home/Index">Home</a>
+                <a href="/Home/About">About us</a>
+                <a href="Login.html">Sign in</a>
+            </div>
+        </div>
+
+
+    </header>
+    <marquee width="100%" direction="right" height="100px" class="marquee">
+        Welcome to Online Job Portal 
+    </marquee>
+    <section>
+        <div class="container">
+            <div class="box" style="background-image: url('img/ae.png');">
+                <div>
+                    <h3 class="log">Sign up</h3>
+                    <div>
+                        <form method="post" action="#" onsubmit="return Validate_Name()" enctype="multipart/form-data">
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>First name</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="firstname" />
+                                    <span id="name_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Last name</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="lastname">
+                                    <span id="date_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Gender</label>
+                                </div>
+                                <div>
+                                    <select name="gender" id="district">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span id="district_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Email</label>
+                                </div>
+                                <div>
+                                    <input type="email" name="email">
+                                    <span id="street_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Phone</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="phone" maxlength="10">
+                                    <span id="phone_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>DOB</label>
+                                </div>
+                                <div>
+                                    <input type="date" name="dateofbirth" />
+                                    <span id="date_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Address</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="address" />
+                                    <span id="city_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>City</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="city" />
+                                    <span id="email_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+                            <div class="inline">
+                                <div class="label">
+                                    <label>State</label>
+                                </div>
+                                <div>
+                                    <select name="state" id="district" onclick="return Validate_District()" onfocusout="return Validate_District()">
+                                        <option></option>
+                                        <option>Kerala</option>
+                                        <option>Tamilnadu</option>
+                                        <option>Karnadaka</option>
+                                    </select>
+                                    <span id="district_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>District</label>
+                                </div>
+                                <div>
+                                    <select name="district" id="district">
+                                        <option></option>
+                                        <option>Wayanad</option>
+                                        <option>Kozhikode</option>
+                                        <option>Kottayam</option>
+                                        <option>Palakad</option>
+                                    </select>
+                                    <span id="district_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Pincode</label>
+                                </div>
+                                <div>
+                                    <input type="tel" id="" name="pin" maxlength="6" />
+                                    <span id="password_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Username</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="username" />
+                                </div>
+                                <span id="password_error" style="color:#fff;"></span>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Password</label>
+                                </div>
+                                <div>
+                                    <input type="password" id="" name="password">
+                                </div>
+                                <span id="password_error" style="color:#fff;"></span>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Confirm password</label>
+                                </div>
+                                <div>
+                                    <input type="password" name="" id="cpassword">
+                                    <span id="cpassword_error" style="color:#fff;"></span>
+                                </div>
+                            </div>
+
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Photo</label>
+                                </div>
+                                <div>
+                                    <input type="file" name="image" accept="image/png, image/jpg, image/gif, image/jpeg" />
+                                </div>
+                            </div>
+                            <div class="inline">
+                                <div class="label">
+                                    <label>Resume</label>
+                                </div>
+                                <div>
+                                    <input type="file" name="resume" accept="application/pdf,application/vnd.ms-excel" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <input type="submit" value="Submit" style="width:100px;background-color:rgb(54, 217, 54);color:#fff;font-size:25px;">
+                            </div>
+                            <div class="sign" style="margin-top:-50px;margin-left:300px;">
+                                <a href="Login.html" style="font-size:20px;margin-top:-100px;">Sign in</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <footer>
+        <p>
+            Copyright 1999-2023 by Refsnes Data. All Rights Reserved.
+            Travel Guide is Powered by Travel.Guide
+        </p>
+    </footer>
+</body>
+</html>

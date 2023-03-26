@@ -1,0 +1,133 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="~/Content/ExternalStyle/Index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <style>
+        .userjobs {
+            width: 80%;
+            background-color: rgb(109, 102, 102);
+            height: 100%;
+            margin-bottom: 100px;
+            margin-top: 50px;
+            margin-left: 10%;
+            border-radius: 8px;
+        }
+
+        .users {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #04AA6D;
+                color: white;
+            }
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <div class="heading">
+            <img src="~/Content/images/logo.png" class="logo"/>
+            <h4>Travel Guide</h4>
+            <div class="items">
+                <a href="/Home/UserIndex">Home</a>
+                <a href="/Home/UserJobsView">View Jobs</a>
+                <a href="#">Applied Jobs</a>
+                <a href="/Home/UserProfile">Account</a>
+                <a href="/Authentication/Logout">Logout</a>
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+
+    <section>
+
+        <div class="users">
+            <div class="userjobs">
+                <table id="customers">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Job title</th>
+                            <th>Company name</th>
+                            <th>qualification</th>
+                            <th>Experience</th>
+                            <th>Vacancy</th>
+                            <th>Salary</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    @{
+                        int counter = 1;
+                    }
+                    @{
+                        foreach (System.Data.DataRow dr in ViewBag.emp.Rows)
+                        {
+                                        <tbody>
+                                            <tr>
+                                                <td>@counter</td>
+                                                <td>@dr["job_title"]</td>
+                                                <td>@dr["company_name"]</td>
+                                                <td>@dr["qualification"]</td>
+                                                <td>@dr["experience"]</td>
+                                                <td>@dr["vacancy"]</td>
+                                                <td>@dr["salary"]</td>
+                                                <td>
+                                                    <a href="/Home/AdminUpdateJobs?id=@dr["id"]" style="color: #fff;text-decoration: none;font-weight:bold;">Apply</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                            counter++;
+
+                        }
+                        }
+                        </table>
+
+
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job Portal is Powered by Online Jobs
+        </p>
+    </footer>
+
+</body>
+</html>

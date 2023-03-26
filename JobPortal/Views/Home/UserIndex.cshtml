@@ -1,0 +1,59 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+
+    <link href="~/Content/ExternalStyle/Index.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <img class="logo" src="~/Content/images/logo.png" />
+            <h4>Job Portal</h4>
+            <div class="items">
+                <a href="/Home/UserIndex">Home</a>
+                <a href="/Home/UserJobsView">View Jobs</a>
+                <a href="#">Applied Jobs</a>
+                <a href="/Home/UserProfile">Account</a>
+                <a href="/Authentication/Logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    @{
+        if (TempData["msg"] != null)
+        {
+            <script>alert('@TempData["msg"]')</script>
+        }
+    }
+
+
+    <marquee width="100%" direction="right" height="100px" class="marquee">
+        Welcome @ViewBag.Username
+    </marquee>
+
+
+    <section>
+
+        <div class="container">
+
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job Portal is Powered by Online Jobs
+        </p>
+    </footer>
+
+</body>
+</html>

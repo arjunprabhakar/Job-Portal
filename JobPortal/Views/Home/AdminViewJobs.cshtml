@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="~/Content/ExternalStyle/adminindex.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+    <header>
+        <div class="heading">
+            <img class="logo" src="~/Content/images/logo.png" />
+            <h4>Job Portal</h4>
+            <div class="items">
+
+            </div>
+        </div>
+
+    </header>
+    <marquee width="100%" direction="right" height="100px" class="marquee">
+        **** jobs ****
+    </marquee>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-red w3-bar-block" style="width:20%;background-color:#5a5555;text-align: center;">
+        <h3 style="color:#fff;font-weight:bold;">Admin Dashboard</h3><br><br>
+        <a href="/Home/AdminIndex" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Home</a><br>
+        <a href="/Home/AdminAddJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Add Job</a><br>
+        <a href="/Home/AdminViewJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Job</a><br>
+        <a href="/Home/AdminViewUsers" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Users</a><br>
+        <a href="/Authentication/Logout" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;margin-top:200px;font-weight:bold;">Logout</a><br>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:20%">
+        <div class="w3-container">
+            <div class="viewform">
+                <table id="customers">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Job title</th>
+                            <th>Company name</th>
+                            <th>qualification</th>
+                            <th>Experience</th>
+                            <th>Vacancy</th>
+                            <th>Salary</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int counter = 1;
+                        }
+                        @{
+                            foreach (System.Data.DataRow dr in ViewBag.emp.Rows)
+                            {
+                                <tr>
+                                    <td>@counter</td>
+                                    <td>@dr["job_title"]</td>
+                                    <td>@dr["company_name"]</td>
+                                    <td>@dr["qualification"]</td>
+                                    <td>@dr["experience"]</td>
+                                    <td>@dr["vacancy"]</td>
+                                    <td>@dr["salary"]</td>
+                                    <td>
+                                        <a href="/Home/AdminUpdateJobs?id=@dr["id"]" style="color: #fff;text-decoration: none;font-weight:bold;">Edit</a>
+                                        <a href="/Home/AdminDeleteJobs?id=@dr["id"]" style="color: #fff;text-decoration: none;font-weight:bold;">Delete</a>
+                                    </td>
+                                </tr>
+                                counter++;
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                @{
+                    if (TempData["msg"] != null)
+                    {
+                        <script>alert('@TempData["msg"]')</script>
+                    }
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job Portal is Powered by Online Jobs
+        </p>
+    </footer>
+
+</body>
+</html>

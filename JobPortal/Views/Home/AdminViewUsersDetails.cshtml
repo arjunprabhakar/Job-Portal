@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="~/Content/ExternalStyle/adminindex.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+    <header>
+        <div class="heading">
+            <img src="~/Content/images/logo.png" class="logo"/>
+            <h4>Job Portal</h4>
+            <div class="items">
+
+            </div>
+        </div>
+
+    </header>
+    <marquee width="100%" direction="right" height="100px" class="marquee">
+        Job Portal Admin
+    </marquee>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-red w3-bar-block" style="width:20%;background-color:#5a5555;text-align: center;">
+        <h3 style="color:#fff;font-weight:bold;">Admin Dashboard</h3><br><br>
+        <a href="/Home/AdminIndex" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Home</a><br>
+        <a href="/Home/AdminAddJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Add Job</a><br>
+        <a href="/Home/AdminViewJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Job</a><br>
+        <a href="/Home/AdminViewUsers" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Users</a><br>
+        <a href="/Authentication/Logout" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;margin-top:200px;font-weight:bold;">Logout</a><br>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:20%">
+
+
+
+        <div class="w3-container">
+
+            @{
+                foreach (System.Data.DataRow dr in ViewBag.user.Rows)
+                {
+                    <div class="profile">
+                                    <div class="userimage" style="margin-top:100px;text-align:center;">
+                                        <img class="logo" src="@Url.Content(dr["user_image"].ToString())"  />
+
+                                        <h4 style="font-weight">@dr["username"]</h4>
+                                    </div>
+
+                        <table id="customers" style="margin-top: 20px;">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>@dr["username"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>@dr["firstname"] @dr["lastname"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <th> @dr["email"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <th> @dr["phone"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <th> @dr["gender"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Date of birth</th>
+                                    <th> @dr["dateofbirth"]</th>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <th> @dr["address"], @dr["city"], @dr["district"], @dr["pincode"]</th>
+                                </tr>
+
+                                <tr>
+                                    <th colspan="2"><a href="#" style="text-decoration: none;color:red;">Download Resume</a></th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+
+                }
+            }
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job Portal is Powered by Online Jobs
+        </p>
+    </footer>
+
+</body>
+</html>

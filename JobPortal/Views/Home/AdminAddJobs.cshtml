@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="~/Content/ExternalStyle/adminindex.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+    <header>
+        <div class="heading">
+            <img src="~/Content/images/logo.png" class="logo"/>
+            <h4>Job Portal</h4>
+            <div class="items">
+
+            </div>
+        </div>
+
+    </header>
+    <marquee width="100%" direction="right" height="100px" class="marquee">
+        Add jobs
+    </marquee>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-red w3-bar-block" style="width:20%;background-color:#5a5555;text-align: center;">
+        <h3 style="color:#fff;font-weight:bold;">Admin Dashboard</h3><br><br>
+        <a href="/Home/AdminIndex" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Home</a><br>
+        <a href="/Home/AdminAddJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">Add Job</a><br>
+        <a href="/Home/AdminViewJobs" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Job</a><br>
+        <a href="/Home/AdminViewUsers" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;">View Users</a><br>
+        <a href="/Authentication/Logout" class="w3-bar-item w3-button" style="color: #fff;font-size:20px;margin-top:200px;font-weight:bold;">Logout</a><br>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:20%">
+        <div class="w3-container">
+            <div class="form">
+                <form method="post">
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter job title" name="job_title">
+                    </div>
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter description" name="job_description">
+                    </div>
+
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter company name" name="job_company">
+                    </div>
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter job location" name="job_location">
+                    </div>
+
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter qualification" name="job_qualification">
+                    </div>
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter vacancy" name="job_vacancy">
+                    </div>
+
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter experience" name="job_experience">
+                    </div>
+
+                    <div class="forminner">
+                        <input type="text" placeholder="Enter Salary" name="job_salary">
+                    </div>
+                    <div class="forminner">
+                        <input type="text" placeholder="Start date" onfocus="(this.type='date')" name="job_startdate">
+                    </div>
+
+                    <div class="forminner">
+                        <input type="text" placeholder="End date" onfocus="(this.type='date')" name="job_enddate">
+                    </div>
+
+
+                    <br> <input type="submit" value="submit">
+                </form>
+
+                @{
+                    if (TempData["msg"] != null)
+                    {
+                        <script>alert('@TempData["msg"]')</script>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job Portal is Powered by Online Jobs
+        </p>
+    </footer>
+
+</body>
+</html>

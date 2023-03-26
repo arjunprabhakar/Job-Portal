@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/ExternalStyle/profile.css" rel="stylesheet" />
+    <title></title>
+
+</head>
+<body>
+
+    <header>
+        <div class="heading">
+            <img class="logo" src="~/Content/images/logo.png" />
+            <h4>Travel Guide</h4>
+            <div class="items">
+                <a href="/Home/UserIndex">Home</a>
+                <a href="#">View Jobs</a>
+                <a href="#">Applied Jobs</a>
+                <a href="/Home/UserProfile">Account</a>
+                <a href="/Authentication/Logout">Logout</a>
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+
+    <section>
+
+        <div class="main">
+
+            @{
+                foreach (System.Data.DataRow dr in ViewBag.user.Rows)
+                {
+                    <div class="profile">
+                                    <div class="userimage">
+                                        <img class="logo" src="@Url.Content(dr["user_image"].ToString())" style="margin-top:20px;" />
+                                    </div>
+                        <div class="details">
+
+                            <div>
+                                <label>Username :</label>@dr["username"]<br>
+                                <label>Name :</label>@dr["firstname"] @dr["lastname"]<br>
+                                <label>Gender :</label>@dr["gender"]<br>
+                                <label>Email :</label>@dr["email"]<br>
+                                <label>Phone :</label>@dr["phone"]<br>
+                                <label>Address:</label>@dr["address"]<br>
+                                <label>City :</label>@dr["city"]<br>
+                                <label>District :</label>@dr["district"]<br>
+                                <label>State:</label>@dr["state"]<br>
+                                <label>Pincode:</label>@dr["pincode"]<br>
+                            </div>
+
+                        </div>
+                        <a href="" style="margin-left:600px;color:#fff;font-weight: bold;">Edit Details</a>
+                    </div>
+                    }
+                }
+                </div>
+    </section>
+    <footer>
+        <p>
+            Copyright 1999-2023 -All Rights Reserved.
+            Job portal is Powered by Online jobs
+        </p>
+    </footer>
+
+</body>
+</html>
